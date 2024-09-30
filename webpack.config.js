@@ -98,7 +98,7 @@ module.exports = (env) => {
       }),
       isDev && new ESLintPlugin(),
       new FaviconsWebpackPlugin({
-        logo: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
+        logo: path.resolve(__dirname, 'src', 'images', 'favicon', 'favicon.png'),
         outputPath: path.resolve(__dirname, 'build', 'images', 'favicon'),
         prefix: 'images/favicon/',
       }),
