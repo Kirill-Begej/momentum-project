@@ -26,6 +26,7 @@ ___
 ## Стек используемых технологий
 - [HTML5](https://dev.w3.org/html5/spec-LC/)
 - [CSS3](https://www.w3.org/Style/CSS/)
+- [БЭМ](https://ru.bem.info/methodology/)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Webpack](https://webpack.js.org/)
 ___

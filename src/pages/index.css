@@ -1,0 +1,5 @@
+@import '../blocks/root/root.css';
+@import '../blocks/bg-image/bg-image.css';
+@import '../blocks/bg-image/__list/bg-image__list.css';
+@import '../blocks/bg-image/__item/bg-image__item.css';
+@import '../blocks/bg-image/__image/bg-image__image.css';
