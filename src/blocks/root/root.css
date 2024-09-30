@@ -4,8 +4,11 @@
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
+  align-items: center;
   box-sizing: border-box;
+  display: flex;
   height: 100vh;
+  justify-content: center;
   line-height: 1.25;
   margin: 0;
   overflow: hidden;

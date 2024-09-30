@@ -1,0 +1,8 @@
+.content {
+  box-sizing: border-box;
+  height: 95%;
+  overflow: hidden;
+  position: relative;
+  width: 95%;
+  z-index: 10;
+}
