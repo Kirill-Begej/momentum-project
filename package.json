@@ -4,7 +4,13 @@
   "description": "Momentum web application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --env mode=development",
+    "build:dev": "webpack --env mode=development",
+    "build:prod": "webpack --env mode=production",
+    "lint:js": "npx eslint \"**/*.js\"",
+    "lint:js:fix": "npx eslint \"**/*.js\" --fix",
+    "lint:scss": "npx stylelint \"**/*.scss\"",
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "repository": {
     "type": "git",
@@ -21,7 +27,29 @@
   },
   "homepage": "https://github.com/Kirill-Begej/momentum-project#readme",
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-webpack-plugin": "^4.2.0",
+    "favicons": "^7.2.0",
+    "favicons-webpack-plugin": "^6.0.1",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.1",
+    "postcss": "^8.4.47",
+    "postcss-lit": "^1.1.1",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^10.0.5",
+    "style-loader": "^4.0.0",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1",
     "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   }
 }
