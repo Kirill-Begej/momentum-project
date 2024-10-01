@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env) => {
   const isDev = env.mode === 'development';
@@ -102,6 +103,7 @@ module.exports = (env) => {
         outputPath: path.resolve(__dirname, 'build', 'images', 'favicon'),
         prefix: 'images/favicon/',
       }),
+      new Dotenv(),
     ].filter(Boolean),
     module: {
       rules: [

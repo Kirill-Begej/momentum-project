@@ -20,5 +20,6 @@ module.exports = {
     'no-use-before-define': 0,
     'no-else-return': 0,
     'consistent-return': 0,
+    'import/no-extraneous-dependencies': 0,
   },
 };
