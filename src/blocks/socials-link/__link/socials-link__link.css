@@ -1,4 +1,9 @@
 .socials-link__link {
   border-radius: 50%;
   display: block;
+  transition: box-shadow .3s ease-out;
+}
+
+.socials-link__link:hover {
+  box-shadow: 0 0 10px var(--hover-color);
 }

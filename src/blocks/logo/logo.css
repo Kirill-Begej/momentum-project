@@ -1,4 +1,9 @@
 .logo {
   border-radius: 50%;
   display: block;
+  transition: box-shadow .3s ease-out;
+}
+
+.logo:hover {
+  box-shadow: 0 0 10px var(--hover-color);
 }
