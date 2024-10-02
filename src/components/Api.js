@@ -9,6 +9,10 @@ export default class Api {
     );
   }
 
+  enableLogoHref() {
+    document.querySelector('.logo').href = window.location.href;
+  }
+
   _checkResponse(res) {
     if (res.ok) {
       return res.json();

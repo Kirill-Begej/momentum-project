@@ -18,4 +18,5 @@ const geolocation = new Geolocation('geolocationText', {
   },
 });
 
+api.enableLogoHref();
 geolocation.enableGeolocation();
