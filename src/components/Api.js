@@ -5,7 +5,7 @@ export default class Api {
 
   getCityName(lat, lon) {
     return this._request(
-      `${this._geolocationUrl}apikey=${process.env.GEOLOCATION_TOKEN}&geocode=${lon},${lat}&format=json&language=ru_RU&kind=locality&results=1`,
+      `${this._geolocationUrl}apikey=${process.env.GEOLOCATION_KEY}&geocode=${lon},${lat}&format=json&language=ru_RU&kind=locality&results=1`,
     );
   }
 
