@@ -1,9 +1,7 @@
 .wrapper {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   height: 95%;
-  overflow: hidden;
   position: relative;
   width: 95%;
   z-index: 10;
