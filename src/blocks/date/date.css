@@ -1,0 +1,5 @@
+.date {
+  color: var(--primary-color);
+  font: var(--font-size-m) var(--primary-font);
+  text-align: center;
+}

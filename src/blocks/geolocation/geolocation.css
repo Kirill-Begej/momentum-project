@@ -2,6 +2,6 @@
   align-items: center;
   color: var(--primary-color);
   display: flex;
-  font: var(--font-size-l) var(--secondary-font);
+  font: var(--font-size-m) var(--secondary-font);
   gap: 5px;
 }

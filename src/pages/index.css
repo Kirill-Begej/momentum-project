@@ -13,10 +13,12 @@
 @import '../blocks/geolocation/geolocation.css';
 @import '../blocks/geolocation/__image/geolocation__image.css';
 @import '../blocks/content/content.css';
+@import '../blocks/date/date.css';
 @import '../blocks/date/__watch/date__watch.css';
+@import '../blocks/date/__watch-value/date__watch-value.css';
 @import '../blocks/date/__watch-separator/date__watch-separator.css';
 @import '../blocks/footer/footer.css';
 @import '../blocks/footer/__container/footer__container.css';
 @import '../blocks/socials-link/socials-link.css';
 @import '../blocks/socials-link/__link/socials-link__link.css';
-@import '../blocks/socials-link//__image/socials-link__image.css';
+@import '../blocks/socials-link/__image/socials-link__image.css';
