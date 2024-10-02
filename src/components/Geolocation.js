@@ -11,7 +11,12 @@ export default class Geolocation {
 
   setCityName(city = 'Краснодар') {
     this._city = city;
+    this._setCityNameInLocalStorage();
     this._renderGeolocation();
+  }
+
+  _setCityNameInLocalStorage() {
+    localStorage.setItem('city', this._city);
   }
 
   _requestGeolocation() {
