@@ -3,6 +3,8 @@
   --secondary-font: 'Libre-Franklin-SemiBold', 'Arial', sans-serif;
   --font-size-s: 16px;
   --font-size-l: 24px;
+  --font-size-xl: 100px;
   --primary-color: #f1f1f1;
+  --bg-color: rgba(41, 41, 41, 0.5);
   --hover-color: #fff;
 }
