@@ -1,6 +1,14 @@
+@import '../vendor/fonts.css';
+@import '../vendor/variables.css';
 @import '../blocks/root/root.css';
 @import '../blocks/bg-image/bg-image.css';
 @import '../blocks/bg-image/__list/bg-image__list.css';
 @import '../blocks/bg-image/__item/bg-image__item.css';
 @import '../blocks/bg-image/__image/bg-image__image.css';
-@import '../blocks/content/content.css';
+@import '../blocks/wrapper/wrapper.css';
+@import '../blocks/header/header.css';
+@import '../blocks/header/__container/header__container.css';
+@import '../blocks/logo/logo.css';
+@import '../blocks/logo/__image/logo__image.css';
+@import '../blocks/geolocation/geolocation.css';
+@import '../blocks/geolocation/__image/geolocation__image.css';

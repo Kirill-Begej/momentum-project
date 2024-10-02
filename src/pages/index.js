@@ -1,9 +1,21 @@
 import './index.css';
-import Location from '../components/Location';
-import { requestCityName } from '../utils/constants';
+import * as constants from '../utils/constants';
+import Api from '../components/Api';
+import Geolocation from '../components/Geolocation';
 
-const location = new Location();
+const api = new Api(constants.URLS);
 
-location.enableLocation();
+const geolocation = new Geolocation('geolocationText', {
+  getCityName: (lat, lon) => {
+    api.getCityName(lat, lon)
+      .then((res) => {
+        geolocation.setCityName(res.response.GeoObjectCollection.featureMember[0].GeoObject.name);
+      })
+      .catch((err) => {
+        geolocation.setCityName();
+        console.log(err);
+      });
+  },
+});
 
-requestCityName();
+geolocation.enableGeolocation();

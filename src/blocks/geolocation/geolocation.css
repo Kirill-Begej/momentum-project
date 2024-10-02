@@ -1,0 +1,7 @@
+.geolocation {
+  align-items: center;
+  color: var(--primary-color);
+  display: flex;
+  font: var(--font-size-l) var(--secondary-font);
+  gap: 5px;
+}

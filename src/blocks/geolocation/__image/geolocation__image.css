@@ -1,0 +1,5 @@
+.geolocation__image {
+  fill: var(--primary-color);
+  height: 35px;
+  width: 35px;
+}
