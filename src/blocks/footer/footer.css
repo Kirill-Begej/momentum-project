@@ -1,0 +1,9 @@
+.footer {
+  background: rgba(41, 41, 41, 0.5);
+  border-radius: 10px;
+  color: var(--primary-color);
+  display: flex;
+  font: var(--font-size-s) var(--secondary-font);
+  justify-content: center;
+  padding: 21px 0;
+}

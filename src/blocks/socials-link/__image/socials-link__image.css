@@ -1,0 +1,7 @@
+.socials-link__image {
+  border-radius: 50%;
+  display: block;
+  fill: var(--primary-color);
+  height: 38px;
+  width: 38px;
+}
