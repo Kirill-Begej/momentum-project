@@ -1,16 +1,15 @@
 export default class Api {
-  constructor({ geolocation }) {
+  constructor({ geolocation, weather }) {
     this._geolocationUrl = geolocation;
+    this._weatherUrl = weather;
   }
 
   getCityName(lat, lon) {
-    return this._request(
-      `${this._geolocationUrl}apikey=${process.env.GEOLOCATION_KEY}&geocode=${lon},${lat}&format=json&language=ru_RU&kind=locality&results=1`,
-    );
+    return this._request(`${this._geolocationUrl}${lon},${lat}`);
   }
 
-  enableLogoHref() {
-    document.querySelector('.logo').href = window.location.href;
+  getWeather(lat, lon) {
+    return this._request(`${this._weatherUrl}lat=${lat}&lon=${lon}`);
   }
 
   _checkResponse(res) {
