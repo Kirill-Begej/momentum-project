@@ -20,16 +20,16 @@ const geolocation = new Geolocation('geolocationText', constants.GEOLOCATION_DEF
   },
 });
 
-const weather = new Weather({
-  // eslint-disable-next-line no-unused-vars
+const weather = new Weather(constants.URLS, {
   getCityWeather: (lat, lon) => {
-    // api.getWeather(lat, lon)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    api.getWeather(lat, lon)
+      .then((res) => {
+        weather.renderWeatherForecast(res);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 });
 

@@ -52,22 +52,22 @@
           <div class="weather__container">
             <div class="weather__column weather__column_type_image">
               <div class="weather__image-wrap">
-                <img src="./images/10d@2x.png" alt="Изображение текущей погоды." class="weather__image">
+                <img alt="Изображение текущей погоды." class="weather__image" id="weatherImage">
               </div>
-              <span class="weater__desc">умеренный дождь</span>
+              <span class="weater__desc" id="weatherDesc"></span>
             </div>
             <div class="weather__column">
               <span class="weather__temp">
-                <span class="weather__temp-value">24</span>&deg;C
+                <span class="weather__temp-value" id="weatherTemp">24</span> &deg;C
               </span>
             </div>
             <div class="weather__column weather__column_type_text">
-              <span class="weather__text">Ощущается как: 20 &#x2103;</span>
-              <span class="weather__text">Облачность: 20 &#x25</span>
-              <span class="weather__text">Влажность: 35 &#x25;</span>
-              <span class="weather__text">Давление: 762 мм рт. ст.</span>
-              <span class="weather__text">Скорость ветра: 2 м/с</span>
-              <span class="weather__text">Направление ветра: В СВ</span>
+              <span class="weather__text">Ощущается как: <span id="weatherFeelsLike"></span> &#x2103;</span>
+              <span class="weather__text">Облачность: <span id="weatherClouds"></span> &#x25</span>
+              <span class="weather__text">Влажность: <span id="weatherHumidity"></span> &#x25;</span>
+              <span class="weather__text">Давление: <span id="weatherPressure"></span> мм рт. ст.</span>
+              <span class="weather__text">Скорость ветра: <span id="weatherWindSpeed"></span> м/с</span>
+              <span class="weather__text">Направление ветра: <span id="weatherWindDeg"></span></span>
             </div>
           </div>
         </section>
