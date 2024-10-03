@@ -1,0 +1,7 @@
+.weather {
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  font: var(--font-size-xs) var(--primary-font);
+  gap: 20px;
+}

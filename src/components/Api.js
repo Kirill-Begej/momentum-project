@@ -9,6 +9,7 @@ export default class Api {
   }
 
   getWeather(lat, lon) {
+    console.log(this._weatherUrl);
     return this._request(`${this._weatherUrl}lat=${lat}&lon=${lon}`);
   }
 

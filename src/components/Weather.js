@@ -4,11 +4,12 @@ export default class Weather {
   }
 
   enableWeather() {
-    this._getCoordsInLocalStorage();
+    this._getDataInLocalStorage();
     this._getCityWeather(this._lat, this._lon);
   }
 
-  _getCoordsInLocalStorage() {
+  _getDataInLocalStorage() {
+    this._city = localStorage.getItem('city');
     const [lat, lon] = localStorage.getItem('coords').split(',');
     this._lat = lat;
     this._lon = lon;

@@ -1,9 +1,11 @@
 :root {
   --primary-font: 'Libre-Franklin-Regular', 'Arial', sans-serif;
   --secondary-font: 'Libre-Franklin-SemiBold', 'Arial', sans-serif;
+  --font-size-xs: 12px;
   --font-size-s: 16px;
   --font-size-m: 24px;
-  --font-size-l: 100px;
+  --font-size-l: 60px;
+  --font-size-xl: 100px;
   --primary-color: #f1f1f1;
   --bg-color: rgba(41, 41, 41, 0.5);
   --hover-color: #fff;

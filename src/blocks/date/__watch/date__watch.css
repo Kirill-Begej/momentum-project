@@ -1,5 +1,5 @@
 .date__watch {  
   display: flex;
-  font: var(--font-size-l) var(--secondary-font);
+  font: var(--font-size-xl) var(--secondary-font);
   gap: 2px;
 }
