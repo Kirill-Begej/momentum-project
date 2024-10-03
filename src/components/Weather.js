@@ -11,6 +11,7 @@ export default class Weather {
     this._windSpeedElement = document.querySelector('#weatherWindSpeed');
     this._windDegElement = document.querySelector('#weatherWindDeg');
     this._getCityWeather = getCityWeather;
+    this._windDirections = ['С', 'СВ', 'В', 'ЮВ', 'Ю', 'ЮЗ', 'З', 'СЗ'];
   }
 
   enableWeather() {
@@ -34,7 +35,7 @@ export default class Weather {
     this._humidityElement.textContent = main.humidity;
     this._pressureElement.textContent = Math.floor(main.pressure / 1.333);
     this._windSpeedElement.textContent = wind.speed;
-    this._windDegElement.textContent = wind.deg;
+    this._windDegElement.textContent = this._defineDirectionWind(wind.deg);
   }
 
   _getDataInLocalStorage() {
@@ -42,5 +43,15 @@ export default class Weather {
     const [lat, lon] = localStorage.getItem('coords').split(',');
     this._lat = lat;
     this._lon = lon;
+  }
+
+  _defineDirectionWind(deg) {
+    if (deg === 0) {
+      return '-';
+    } else if (deg === 360) {
+      return this._windDirections[0];
+    }
+
+    return this._windDirections[Math.floor(deg / 45)];
   }
 }

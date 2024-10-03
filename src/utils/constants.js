@@ -9,3 +9,8 @@ export const GEOLOCATION_DEFAULT = {
   lat: 45.0448,
   lon: 38.976,
 };
+
+export const INTERVAL_APP = {
+  secondInterval: 1000,
+  hourlyInterval: 3600,
+};

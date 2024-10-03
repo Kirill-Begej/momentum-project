@@ -10,13 +10,6 @@ export default class DateAndWatch {
 
   enableDateAndWatch() {
     this._date = new Date();
-    this._intervalId = setInterval(() => {
-      this._date = new Date();
-      this._getWatch();
-      this._setTimeInHtml();
-      this._getDate();
-      this._setDateInHtml();
-    }, 1000);
     this._getWatch();
     this._setTimeInHtml();
     this._getDate();
