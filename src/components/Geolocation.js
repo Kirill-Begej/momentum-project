@@ -8,21 +8,21 @@ export default class Geolocation {
   }
 
   enableGeolocation() {
-    this.setCityName();
-    this._setCityGeolocationInLocalStorage();
+    this.setCityData();
     this._requestGeolocation();
   }
 
-  setCityName(city = this._cityDefault) {
+  setCityData(city = this._cityDefault, lat = this._latDefault, lon = this._lonDefault) {
     this._setCityNameInLocalStorage(city);
     this._textElement.textContent = city;
+    this._setCityGeolocationInLocalStorage(lat, lon);
   }
 
   _setCityNameInLocalStorage(city) {
     localStorage.setItem('city', city);
   }
 
-  _setCityGeolocationInLocalStorage(lat = this._latDefault, lon = this._lonDefault) {
+  _setCityGeolocationInLocalStorage(lat, lon) {
     localStorage.setItem('coords', `${lat},${lon}`);
   }
 
@@ -31,7 +31,6 @@ export default class Geolocation {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          this._setCityGeolocationInLocalStorage(latitude, longitude);
           this._getCityName(latitude, longitude);
         },
         (error) => {

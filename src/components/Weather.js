@@ -1,6 +1,7 @@
 export default class Weather {
   constructor({ weatherIcon }, { getCityWeather }) {
     this._weatherIconUrl = weatherIcon;
+    this._weatherTitle = document.querySelector('#weatherTitle');
     this._weatherImage = document.querySelector('#weatherImage');
     this._weatherDesc = document.querySelector('#weatherDesc');
     this._tempElement = document.querySelector('#weatherTemp');
@@ -15,7 +16,8 @@ export default class Weather {
   }
 
   enableWeather() {
-    this._getDataInLocalStorage();
+    this._getCoordsInLocalStorage();
+    this._renderCityName();
     this._getCityWeather(this._lat, this._lon);
   }
 
@@ -38,11 +40,19 @@ export default class Weather {
     this._windDegElement.textContent = this._defineDirectionWind(wind.deg);
   }
 
-  _getDataInLocalStorage() {
-    this._city = localStorage.getItem('city');
+  _renderCityName() {
+    this._getCityNameInLocalStorage();
+    this._weatherTitle.textContent = this._city;
+  }
+
+  _getCoordsInLocalStorage() {
     const [lat, lon] = localStorage.getItem('coords').split(',');
     this._lat = lat;
     this._lon = lon;
+  }
+
+  _getCityNameInLocalStorage() {
+    this._city = localStorage.getItem('city');
   }
 
   _defineDirectionWind(deg) {

@@ -11,6 +11,8 @@ export const GEOLOCATION_DEFAULT = {
 };
 
 export const INTERVAL_APP = {
+  // указать время работы интервала получения (обновления) данных приложения в миллисекундах
   secondInterval: 1000,
+  // указать время обновления данных о погоде в секундах
   hourlyInterval: 3600,
 };

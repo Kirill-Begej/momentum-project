@@ -13,7 +13,13 @@ const geolocation = new Geolocation('geolocationText', constants.GEOLOCATION_DEF
   getCityName: (lat, lon) => {
     api.getCityName(lat, lon)
       .then((res) => {
-        geolocation.setCityName(res.response.GeoObjectCollection.featureMember[0].GeoObject.name);
+        const { name } = res.response.GeoObjectCollection.featureMember[0].GeoObject;
+        const [
+          newLon,
+          newLat,
+        ] = res.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ');
+        geolocation.setCityData(name, newLat, newLon);
+        weather.enableWeather();
       })
       .catch((err) => {
         console.log(err);
@@ -26,8 +32,6 @@ const weather = new Weather(constants.URLS, {
     api.getWeather(lat, lon)
       .then((res) => {
         weather.renderWeatherForecast(res);
-        console.log(document.querySelector('.date__watch').textContent);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -45,8 +49,6 @@ const intervalApp = new IntervalApp(constants.INTERVAL_APP, {
     api.getWeather(lat, lon)
       .then((res) => {
         weather.renderWeatherForecast(res);
-        console.log(document.querySelector('.date__watch').textContent);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
