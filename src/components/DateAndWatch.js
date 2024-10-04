@@ -14,6 +14,11 @@ export default class DateAndWatch {
     this._setTimeInHtml();
     this._getDate();
     this._setDateInHtml();
+    return this._getHour(this._date);
+  }
+
+  _getHour(date) {
+    return date.getHours();
   }
 
   _getWatch() {

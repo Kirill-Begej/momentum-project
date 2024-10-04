@@ -5,6 +5,7 @@ import Geolocation from '../components/Geolocation';
 import DateAndWatch from '../components/DateAndWatch';
 import Weather from '../components/Weather';
 import IntervalApp from '../components/IntervalApp';
+import Slider from '../components/Slider';
 import { enableLogoHref } from '../utils/enableLogoHref';
 
 const api = new Api(constants.URLS);
@@ -41,9 +42,12 @@ const weather = new Weather(constants.URLS, {
 
 const dateAndWatch = new DateAndWatch();
 
+const slider = new Slider(constants);
+
 const intervalApp = new IntervalApp(constants.INTERVAL_APP, {
   startWatch: () => {
-    dateAndWatch.enableDateAndWatch();
+    const currentHour = dateAndWatch.enableDateAndWatch();
+    slider.changeSlide(currentHour);
   },
   getCityWeather: (lat, lon) => {
     api.getWeather(lat, lon)
@@ -59,5 +63,6 @@ const intervalApp = new IntervalApp(constants.INTERVAL_APP, {
 enableLogoHref();
 geolocation.enableGeolocation();
 weather.enableWeather();
-dateAndWatch.enableDateAndWatch();
+const currentHour = dateAndWatch.enableDateAndWatch();
+slider.enableSlider(currentHour);
 intervalApp.enableIntervalApp();

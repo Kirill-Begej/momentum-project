@@ -1,0 +1,5 @@
+.background {
+  background: var(--bg-color);
+  inset: 0;
+  position: absolute;
+}

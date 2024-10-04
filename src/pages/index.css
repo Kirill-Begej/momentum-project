@@ -1,10 +1,8 @@
 @import '../vendor/fonts.css';
 @import '../vendor/variables.css';
 @import '../blocks/root/root.css';
-@import '../blocks/bg-image/bg-image.css';
-@import '../blocks/bg-image/__list/bg-image__list.css';
-@import '../blocks/bg-image/__item/bg-image__item.css';
-@import '../blocks/bg-image/__image/bg-image__image.css';
+@import '../blocks/background/background.css';
+@import '../blocks/background/__image/background__image.css';
 @import '../blocks/wrapper/wrapper.css';
 @import '../blocks/header/header.css';
 @import '../blocks/header/__container/header__container.css';

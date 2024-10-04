@@ -1,6 +1,4 @@
 .footer {
-  background: var(--bg-color);
-  border-radius: 10px;
   color: var(--primary-color);
   display: flex;
   font: var(--font-size-s) var(--primary-font);
