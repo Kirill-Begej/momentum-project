@@ -1,0 +1,13 @@
+.tasks__checkbox-label {
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  height: 14px;
+  transition: border-color .3s ease-out;
+  width: 14px;
+}
+
+.tasks__checkbox-label:hover {
+  border-color: var(--bg-color);
+}

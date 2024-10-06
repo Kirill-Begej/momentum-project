@@ -1,8 +1,6 @@
 .content {
-  align-items: center;
   display: flex;
-  flex-direction: column;
   flex: 1 0 auto;
-  gap: 10vh;
   justify-content: center;
+  width: 100%;
 }

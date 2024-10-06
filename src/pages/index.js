@@ -6,7 +6,10 @@ import DateAndWatch from '../components/DateAndWatch';
 import Weather from '../components/Weather';
 import IntervalApp from '../components/IntervalApp';
 import Slider from '../components/Slider';
+import TasksList from '../components/TasksList';
 import { enableLogoHref } from '../utils/enableLogoHref';
+
+const tasksOpenButtonElement = document.querySelector('#tasksOpenButton');
 
 const api = new Api(constants.URLS);
 
@@ -60,9 +63,15 @@ const intervalApp = new IntervalApp(constants.INTERVAL_APP, {
   },
 });
 
+const tasksList = new TasksList();
+
 enableLogoHref();
 geolocation.enableGeolocation();
 weather.enableWeather();
 const currentHour = dateAndWatch.enableDateAndWatch();
 slider.enableSlider(currentHour);
 intervalApp.enableIntervalApp();
+
+tasksOpenButtonElement.addEventListener('click', () => {
+  tasksList.openOrClose();
+});

@@ -1,5 +1,5 @@
 .weather__title {
-  font: var(--font-size-m) var(--secondary-font);
+  font: var(--font-size-l) var(--secondary-font);
   margin: 0;
   text-align: center;
 }

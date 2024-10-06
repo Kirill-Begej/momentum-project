@@ -11,6 +11,7 @@
 @import '../blocks/geolocation/geolocation.css';
 @import '../blocks/geolocation/__image/geolocation__image.css';
 @import '../blocks/content/content.css';
+@import '../blocks/content/__container/content__container.css';
 @import '../blocks/date/date.css';
 @import '../blocks/date/__watch/date__watch.css';
 @import '../blocks/date/__watch-value/date__watch-value.css';
@@ -23,6 +24,21 @@
 @import '../blocks/weather/__image/weather__image.css';
 @import '../blocks/weather/__desc/weater__desc.css';
 @import '../blocks/weather/__temp/weather__temp.css';
+@import '../blocks/tasks/tasks.css';
+@import '../blocks/tasks/__container/tasks__container.css';
+@import '../blocks/tasks/__list/tasks__list.css';
+@import '../blocks/tasks/__item/tasks__item.css';
+@import '../blocks/tasks/__checkbox/tasks__checkbox.css';
+@import '../blocks/tasks/__checkbox-input/tasks__checkbox-input.css';
+@import '../blocks/tasks/__checkbox-label/tasks__checkbox-label.css';
+@import '../blocks/tasks/__text/tasks__text.css';
+@import '../blocks/tasks/__remove-button/tasks__remove-button.css';
+@import '../blocks/tasks/__remove-icon/tasks__remove-icon.css';
+@import '../blocks/tasks/__input/tasks__input.css';
+@import '../blocks/tasks/__start/tasks__start.css';
+@import '../blocks/tasks/__start-desc/tasks__start-desc.css';
+@import '../blocks/tasks/__start-button/tasks__start-button.css';
+@import '../blocks/tasks/__open-button/tasks__open-button.css';
 @import '../blocks/footer/footer.css';
 @import '../blocks/footer/__container/footer__container.css';
 @import '../blocks/socials-link/socials-link.css';
@@ -30,3 +46,7 @@
 @import '../blocks/socials-link/__image/socials-link__image.css';
 @import '../blocks/weather/__column/_type/weather__column_type_image.css';
 @import '../blocks/weather/__column/_type/weather__column_type_text.css';
+@import '../blocks/tasks/__container/_opened/tasks__container_opened.css';
+@import '../blocks/tasks/__list/_visibility/tasks__list_visibility.css';
+@import '../blocks/tasks/__input/_visibility/tasks__input_visibility.css';
+@import '../blocks/tasks/__start-button/_hide/tasks__start-button_hide.css';

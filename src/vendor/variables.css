@@ -3,10 +3,13 @@
   --secondary-font: 'Libre-Franklin-SemiBold', 'Arial', sans-serif;
   --font-size-xs: 12px;
   --font-size-s: 16px;
-  --font-size-m: 24px;
-  --font-size-l: 60px;
-  --font-size-xl: 100px;
-  --primary-color: #f1f1f1;
+  --font-size-m: 20px;
+  --font-size-l: 24px;
+  --font-size-xl: 60px;
+  --font-size-xxl: 100px;
+  --primary-color: #feffff;
+  --secondary-color: #7f7f7d;
   --bg-color: #242424;
+  --bg-color-transparent: #141414b3;
   --hover-color: #fff;
 }

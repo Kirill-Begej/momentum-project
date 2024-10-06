@@ -1,3 +1,3 @@
 .weather__temp {
-  font: var( --font-size-l) var(--secondary-font);
+  font: var( --font-size-xl) var(--secondary-font);
 }

@@ -1,0 +1,12 @@
+.tasks__checkbox-input {
+  opacity: 0;
+  position: absolute;
+  z-index: -10;
+}
+
+.tasks__checkbox-input:checked+.tasks__checkbox-label {
+  background-color: #005dc4;
+  background-image: url('../../../images/tasks/checkbox.svg');
+  background-position: center center;
+  border: 1px solid var(--bg-color);
+}

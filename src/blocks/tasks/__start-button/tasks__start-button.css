@@ -1,0 +1,16 @@
+.tasks__start-button {
+  background-color: #0a3b4a;
+  border-radius: 25px;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font: var(--font-size-s) var(--primary-font);
+  opacity: 1;
+  padding: 7px 15px;
+  transition: background-color .3s ease-out,
+              opacity .2s;
+}
+
+.tasks__start-button:hover {
+  background-color: #073138;
+}

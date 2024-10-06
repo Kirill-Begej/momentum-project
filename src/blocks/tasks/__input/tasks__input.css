@@ -1,0 +1,15 @@
+.tasks__input {
+  background-color: transparent;
+  border: none;
+  color: var(--secondary-color);
+  display: none;
+  font: var(--font-size-s) var(--secondary-font);
+  padding: 0;
+  position: relative;
+  width: 95.08%;
+  z-index: 5;
+}
+
+.tasks__input:focus {
+  outline: none;
+}

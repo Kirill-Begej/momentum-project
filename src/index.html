@@ -33,6 +33,8 @@
     </header>
 
     <main class="content">
+      <div class="content__container">
+
         <section class="date">
           <div class="date__watch">
             <span class="date__watch-value" id="hours"></span>
@@ -43,6 +45,7 @@
           </div>
           <div class="date__wrap" id="date"></div>
         </section>
+
         <section class="weather">
           <h2 class="weather__title" id="weatherTitle"></h2>
           <div class="weather__container">
@@ -67,6 +70,35 @@
             </div>
           </div>
         </section>
+
+        <section class="tasks">
+          <div class="tasks__container" id="tasksContainer">
+            <ul class="tasks__list">
+              <li class="tasks__item">
+                <div class="tasks__checkbox">
+                  <input class="tasks__checkbox-input" id="taskCheckbox" type="checkbox">
+                  <label class="tasks__checkbox-label" for="taskCheckbox"></label>
+                </div>                
+                <span class="tasks__text">Новая новая задача</span>
+                <button class="tasks__remove-button">
+                  <svg class="tasks__remove-icon">
+                    <use href="./images/tasks/tasks.svg#remove"></use>
+                  </svg>
+                </button>
+              </li>
+              
+              
+            </ul>
+            <input type="text" class="tasks__input" id="tasksInput" placeholder="Новая Задача">
+            <div class="tasks__start">
+              <span class="tasks__start-desc">Добавьте задачу, чтобы начать</span>
+              <button type="button" class="tasks__start-button" id="startButton">Новая Задача</button>
+            </div>
+          </div>
+          <button type="button" class="tasks__open-button" id="tasksOpenButton">Задачи</button>
+        </section>
+
+      </div>
     </main>
 
     <footer class="footer">

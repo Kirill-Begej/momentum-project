@@ -1,0 +1,14 @@
+.tasks {
+  bottom: 0;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  font: var(--font-size-s) var(--primary-font);
+  gap: 15px;
+  justify-content: end;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 320px;
+}

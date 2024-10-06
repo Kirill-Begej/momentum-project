@@ -1,0 +1,14 @@
+.tasks__open-button {
+  align-self: end;
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font: var(--font-size-m) var(--primary-font);
+  padding: 0;
+  transition: text-shadow .3s ease-out;
+}
+
+.tasks__open-button:hover {
+  text-shadow: 0 0 8px var(--hover-color);
+}

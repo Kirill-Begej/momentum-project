@@ -1,0 +1,5 @@
+.tasks__item {
+  display: flex;
+  gap: 8px;
+  width: 95.08%;
+}

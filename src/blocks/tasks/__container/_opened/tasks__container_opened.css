@@ -1,0 +1,5 @@
+.tasks__container_opened {
+  min-height: 230px;
+  opacity: 1;
+  padding: 15px 0 15px 15px;
+}

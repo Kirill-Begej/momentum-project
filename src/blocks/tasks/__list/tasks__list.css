@@ -1,0 +1,22 @@
+.tasks__list {  
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+}
+
+.tasks__list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tasks__list::-webkit-scrollbar-track {
+  background: var(--bg-color-transparent);
+}
+
+.tasks__list::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 5px;
+}
