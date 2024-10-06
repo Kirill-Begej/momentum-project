@@ -49,4 +49,5 @@
 @import '../blocks/tasks/__container/_opened/tasks__container_opened.css';
 @import '../blocks/tasks/__list/_visibility/tasks__list_visibility.css';
 @import '../blocks/tasks/__input/_visibility/tasks__input_visibility.css';
+@import '../blocks/tasks/__start/_hide/tasks__start_hide.css';
 @import '../blocks/tasks/__start-button/_hide/tasks__start-button_hide.css';

@@ -66,14 +66,10 @@ const intervalApp = new IntervalApp(constants.INTERVAL_APP, {
 
 const tasksList = new TasksList({
   setTaskText: (taskText) => {
-    console.log(taskText);
+    const task = new Task();
+    tasksList.addTaskInTasksList(task.generate(taskText));
   },
 });
-
-// eslint-disable-next-line no-unused-vars
-const task = new Task();
-
-// console.log(task.generate());
 
 enableLogoHref();
 geolocation.enableGeolocation();

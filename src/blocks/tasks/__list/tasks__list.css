@@ -6,6 +6,7 @@
   margin: 0;
   overflow: auto;
   padding: 0;
+  scrollbar-gutter: stable;
 }
 
 .tasks__list::-webkit-scrollbar {

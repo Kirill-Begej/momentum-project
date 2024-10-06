@@ -1,6 +1,7 @@
 export default class Task {
-  generate() {
+  generate(taskText) {
     this._getElement();
+    this._taskElement.querySelector('.tasks__text').textContent = taskText;
     return this._taskElement;
   }
 
