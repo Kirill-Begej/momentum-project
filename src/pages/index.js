@@ -7,6 +7,7 @@ import Weather from '../components/Weather';
 import IntervalApp from '../components/IntervalApp';
 import Slider from '../components/Slider';
 import TasksList from '../components/TasksList';
+import Task from '../components/Task';
 import { enableLogoHref } from '../utils/enableLogoHref';
 
 const tasksOpenButtonElement = document.querySelector('#tasksOpenButton');
@@ -63,7 +64,16 @@ const intervalApp = new IntervalApp(constants.INTERVAL_APP, {
   },
 });
 
-const tasksList = new TasksList();
+const tasksList = new TasksList({
+  setTaskText: (taskText) => {
+    console.log(taskText);
+  },
+});
+
+// eslint-disable-next-line no-unused-vars
+const task = new Task();
+
+// console.log(task.generate());
 
 enableLogoHref();
 geolocation.enableGeolocation();
@@ -73,5 +83,5 @@ slider.enableSlider(currentHour);
 intervalApp.enableIntervalApp();
 
 tasksOpenButtonElement.addEventListener('click', () => {
-  tasksList.openOrClose();
+  tasksList.enableTasksList();
 });

@@ -74,20 +74,7 @@
         <section class="tasks">
           <div class="tasks__container" id="tasksContainer">
             <ul class="tasks__list">
-              <li class="tasks__item">
-                <div class="tasks__checkbox">
-                  <input class="tasks__checkbox-input" id="taskCheckbox" type="checkbox">
-                  <label class="tasks__checkbox-label" for="taskCheckbox"></label>
-                </div>                
-                <span class="tasks__text">Новая новая задача</span>
-                <button class="tasks__remove-button">
-                  <svg class="tasks__remove-icon">
-                    <use href="./images/tasks/tasks.svg#remove"></use>
-                  </svg>
-                </button>
-              </li>
-              
-              
+
             </ul>
             <input type="text" class="tasks__input" id="tasksInput" placeholder="Новая Задача">
             <div class="tasks__start">
@@ -137,6 +124,21 @@
       <source>
       <img>
     </picture>
+  </template>
+
+  <template id="taskTemplate">
+    <li class="tasks__item">
+      <div class="tasks__checkbox">
+        <input class="tasks__checkbox-input" id="taskCheckbox" type="checkbox">
+        <label class="tasks__checkbox-label" for="taskCheckbox"></label>
+      </div>                
+      <span class="tasks__text"></span>
+      <button class="tasks__remove-button">
+        <svg class="tasks__remove-icon">
+          <use href="./images/tasks/tasks.svg#remove"></use>
+        </svg>
+      </button>
+    </li>
   </template>
 
 </body>

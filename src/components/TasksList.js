@@ -1,30 +1,31 @@
 export default class TasksList {
-  constructor() {
+  constructor({ setTaskText }) {
     this._tasksContainerElement = document.querySelector('#tasksContainer');
     this._startButtonElement = document.querySelector('#startButton');
     this._tasksInputElement = document.querySelector('#tasksInput');
+    this._setTaskText = setTaskText;
   }
 
-  openOrClose() {
+  enableTasksList() {
     if (this._tasksContainerElement.classList.contains('tasks__container_opened')) {
-      this._tasksContainerElement.classList.remove('tasks__container_opened');
-      this._tasksInputElement.classList.remove('tasks__input_visibility');
-      this._startButtonElement.classList.remove('tasks__start-button_hide');
-      this._startButtonElement.disabled = false;
-      this._startButtonRemoveEventListeners();
+      this._closeTasksList();
     } else {
-      this._tasksContainerElement.classList.add('tasks__container_opened');
-      this._startButtonAddEventListeners();
+      this._openTasksList();
     }
   }
 
-  _startButtonAddEventListeners() {
-    this._clickStartButton = this._startAddTasks.bind(this);
-    this._startButtonElement.addEventListener('click', this._clickStartButton);
+  _openTasksList() {
+    this._tasksContainerElement.classList.add('tasks__container_opened');
+    this._addEventListeners();
   }
 
-  _startButtonRemoveEventListeners() {
-    this._startButtonElement.removeEventListener('click', this._clickStartButton);
+  _closeTasksList() {
+    this._tasksContainerElement.classList.remove('tasks__container_opened');
+    this._tasksInputElement.classList.remove('tasks__input_visibility');
+    this._startButtonElement.classList.remove('tasks__start-button_hide');
+    this._startButtonElement.disabled = false;
+    this._tasksInputElement.value = '';
+    this._removeEventListeners();
   }
 
   _startAddTasks() {
@@ -32,5 +33,36 @@ export default class TasksList {
     this._startButtonElement.classList.add('tasks__start-button_hide');
     this._startButtonElement.disabled = true;
     this._tasksInputElement.focus();
+  }
+
+  _setText(e) {
+    if (e.target.value.charAt(0) === ' ') {
+      this._tasksInputElement.value = '';
+    } else {
+      this._taskText = e.target.value;
+    }
+  }
+
+  _sendText(e) {
+    if (e.key === 'Enter' && this._taskText !== '') {
+      this._setTaskText(this._taskText.trim());
+      this._taskText = '';
+      this._tasksInputElement.value = '';
+    }
+  }
+
+  _addEventListeners() {
+    this._clickStartButton = this._startAddTasks.bind(this);
+    this._startButtonElement.addEventListener('click', this._clickStartButton);
+    this._textInput = this._setText.bind(this);
+    this._tasksInputElement.addEventListener('input', this._textInput);
+    this._sendTextInput = this._sendText.bind(this);
+    this._tasksInputElement.addEventListener('keydown', this._sendTextInput);
+  }
+
+  _removeEventListeners() {
+    this._startButtonElement.removeEventListener('click', this._clickStartButton);
+    this._tasksInputElement.removeEventListener('input', this._textInput);
+    this._tasksInputElement.removeEventListener('keydown', this._sendTextInput);
   }
 }
