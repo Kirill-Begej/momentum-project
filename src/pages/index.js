@@ -66,8 +66,32 @@ const intervalApp = new IntervalApp(constants.INTERVAL_APP, {
 
 const tasksList = new TasksList({
   setTaskText: (taskText) => {
-    const task = new Task();
-    tasksList.addTaskInTasksList(task.generate(taskText));
+    const task = new Task({
+      changeStateTask: (id, completed) => {
+        tasksList.changeTaskInState(id, completed);
+      },
+      removeTaskInState: (id) => {
+        tasksList.removeTaskInState(id);
+      },
+    });
+    const { id, taskElement, completed } = task.generateNewTask(taskText);
+    tasksList.addTaskInTasksList(taskElement);
+    tasksList.addTaskInState(id, taskText, completed);
+  },
+  renderTasksInLocalStorage: (tasksState) => {
+    tasksState.forEach((newTask) => {
+      const task = new Task({
+        changeStateTask: (id, completed) => {
+          tasksList.changeTaskInState(id, completed);
+        },
+        removeTaskInState: (id) => {
+          tasksList.removeTaskInState(id);
+        },
+      });
+      tasksList.addTaskInTasksList(
+        task.generateTaskInLocalStorage(newTask.id, newTask.taskText, newTask.completed),
+      );
+    });
   },
 });
 

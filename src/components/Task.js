@@ -1,9 +1,26 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export default class Task {
-  generate(taskText) {
-    this._getElement();
-    this._taskElement.querySelector('.tasks__text').textContent = taskText;
-    this._addEventListeners();
-    this._removeHandler();
+  constructor({ changeStateTask, removeTaskInState }) {
+    this._changeStateTask = changeStateTask;
+    this._removeTaskInState = removeTaskInState;
+  }
+
+  generateNewTask(taskText) {
+    this._idTask = uuidv4();
+    this._completed = false;
+    this._generate(taskText);
+    return {
+      id: this._idTask,
+      taskElement: this._taskElement,
+      completed: this._completed,
+    };
+  }
+
+  generateTaskInLocalStorage(id, taskText, completed) {
+    this._idTask = id;
+    this._completed = completed;
+    this._generate(taskText);
     return this._taskElement;
   }
 
@@ -11,16 +28,30 @@ export default class Task {
     this._taskElement = document.querySelector('#taskTemplate').content.querySelector('.tasks__item').cloneNode(true);
   }
 
+  _generate(taskText) {
+    this._getElement();
+    this._taskElement.querySelector('.tasks__text').textContent = taskText;
+    this._taskElement.querySelector('.tasks__checkbox-input').id = this._idTask;
+    this._taskElement.querySelector('.tasks__checkbox-label').setAttribute('for', this._idTask);
+    this._addEventListeners();
+    this._removeHandler();
+  }
+
   _completedHandler(e) {
     if (e.target.checked) {
       this._taskElement.querySelector('.tasks__text').classList.add('tasks__text_crossed-out');
+      this._completed = true;
+      this._changeStateTask(this._idTask, this._completed);
     } else {
       this._taskElement.querySelector('.tasks__text').classList.remove('tasks__text_crossed-out');
+      this._completed = false;
+      this._changeStateTask(this._idTask, this._completed);
     }
   }
 
   _removeHandler(e) {
     if (e) {
+      this._removeTaskInState(this._idTask);
       this._taskElement.remove();
       this._removeEventListeners();
     }
