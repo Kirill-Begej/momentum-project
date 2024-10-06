@@ -1,0 +1,4 @@
+.tasks__text_crossed-out {
+  color: var(--secondary-color);
+  text-decoration: line-through;
+}

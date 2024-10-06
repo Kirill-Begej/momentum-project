@@ -60,7 +60,7 @@ export default class TasksList {
   }
 
   _sendText(e) {
-    if (e.key === 'Enter' && this._taskText !== '') {
+    if (e.key === 'Enter' && this._taskText) {
       this._setTaskText(this._taskText.trim());
       this._taskText = '';
       this._tasksInputElement.value = '';
