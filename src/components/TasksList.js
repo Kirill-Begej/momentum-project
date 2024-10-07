@@ -5,6 +5,8 @@ export default class TasksList {
     this._startButtonElement = document.querySelector('#startButton');
     this._tasksListElement = document.querySelector('#tasksList');
     this._tasksInputElement = document.querySelector('#tasksInput');
+    this._tasksInputFieldElement = document.querySelector('#tasksInputField');
+    this._tasksInputErrorElement = document.querySelector('#tasksInputError');
     this._setTaskText = setTaskText;
     this._renderTasksInLocalStorage = renderTasksInLocalStorage;
     this._tasksListOpened = false;
@@ -77,7 +79,6 @@ export default class TasksList {
     }
     this._startButtonElement.classList.remove('tasks__start-button_hide');
     this._startButtonElement.disabled = false;
-    this._tasksInputElement.value = '';
     this._removeEventListeners();
   }
 
@@ -85,7 +86,8 @@ export default class TasksList {
     this._tasksContainerElement.classList.add('tasks__container_opened');
     this._tasksListElement.classList.add('tasks__list_visibility');
     this._tasksInputElement.classList.add('tasks__input_visibility');
-    this._tasksInputElement.focus();
+    this._tasksInputErrorElement.classList.remove('tasks__input-error_visibility');
+    this._tasksInputFieldElement.focus();
     this._tasksStartElement.classList.add('tasks__start_hide');
   }
 
@@ -93,13 +95,20 @@ export default class TasksList {
     this._tasksInputElement.classList.add('tasks__input_visibility');
     this._startButtonElement.classList.add('tasks__start-button_hide');
     this._startButtonElement.disabled = true;
-    this._tasksInputElement.focus();
+    this._tasksInputErrorElement.classList.remove('tasks__input-error_visibility');
+    this._tasksInputFieldElement.focus();
   }
 
   _setText(e) {
     if (e.target.value.charAt(0) === ' ') {
       this._tasksInputElement.value = '';
+      if (!this._tasksInputElement.value) {
+        this._tasksInputErrorElement.classList.add('tasks__input-error_visibility');
+      }
+    } else if (!e.target.value) {
+      this._tasksInputErrorElement.classList.add('tasks__input-error_visibility');
     } else {
+      this._tasksInputErrorElement.classList.remove('tasks__input-error_visibility');
       this._taskText = e.target.value;
     }
   }
@@ -111,7 +120,9 @@ export default class TasksList {
       this._tasksInputElement.value = '';
       this._tasksContainerElement.classList.remove('tasks__container_empty');
       this._tasksContainerElement.classList.add('tasks__container_opened');
+      this._tasksInputFieldElement.value = '';
     }
+    this._taskText = '';
   }
 
   _addEventListeners() {

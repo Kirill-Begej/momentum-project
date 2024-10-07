@@ -1,0 +1,5 @@
+.tasks__input-error {
+  color: #530000;
+  display: none;
+  font: var(--font-size-xs) var(--secondary-font);
+}

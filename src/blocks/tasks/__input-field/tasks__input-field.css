@@ -1,0 +1,11 @@
+.tasks__input-field {  
+  background-color: transparent;
+  border: none;
+  color: var(--secondary-color);
+  font: var(--font-size-s) var(--secondary-font);
+  padding: 0;
+}
+
+.tasks__input-field:focus {
+  outline: none;
+}
