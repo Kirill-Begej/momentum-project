@@ -7,10 +7,10 @@
   flex: 0 1 auto;
   gap: 15px;
   justify-content: end;
-  min-height: 0;
+  height: 0;
   opacity: 0;
   overflow: hidden;
   position: relative;
-  transition: min-height 0.3s,
+  transition: height 0.3s,
               opacity 0.1s;
 }

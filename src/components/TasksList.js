@@ -7,14 +7,17 @@ export default class TasksList {
     this._tasksInputElement = document.querySelector('#tasksInput');
     this._setTaskText = setTaskText;
     this._renderTasksInLocalStorage = renderTasksInLocalStorage;
+    this._tasksListOpened = false;
     this._tasksState = [];
   }
 
   enableTasksList() {
-    if (this._tasksContainerElement.classList.contains('tasks__container_opened')) {
+    if (this._tasksListOpened) {
       this._closeTasksList();
+      this._tasksListOpened = false;
     } else {
       this._openTasksList();
+      this._tasksListOpened = true;
     }
   }
 
@@ -52,39 +55,38 @@ export default class TasksList {
   }
 
   _openTasksList() {
-    this._tasksContainerElement.classList.add('tasks__container_opened');
-    if (this._tasksState.length) {
+    if (this._tasksState.length !== this._getStateInLocalStorage().length) {
+      this._tasksState = this._getStateInLocalStorage();
+      this._renderTasksInLocalStorage(this._tasksState);
+      this._visibilityTasksList();
+    } else if (this._tasksState.length) {
       this._visibilityTasksList();
     } else {
-      this._getStateInLocalStorage();
-      if (this._tasksState.length) {
-        this._visibilityTasksList();
-        this._renderTasksInLocalStorage(this._tasksState);
-        this._tasksStartElement.classList.add('tasks__start_hide');
-      }
+      this._tasksContainerElement.classList.add('tasks__container_empty');
+      this._tasksInputElement.classList.remove('tasks__input_visibility');
     }
     this._addEventListeners();
   }
 
   _closeTasksList() {
-    this._tasksContainerElement.classList.remove('tasks__container_opened');
-    this._tasksInputElement.classList.remove('tasks__input_visibility');
     if (this._tasksState.length) {
       this._tasksListElement.classList.remove('tasks__list_visibility');
+      this._tasksContainerElement.classList.remove('tasks__container_opened');
+    } else {
+      this._tasksContainerElement.classList.remove('tasks__container_empty');
     }
     this._startButtonElement.classList.remove('tasks__start-button_hide');
     this._startButtonElement.disabled = false;
     this._tasksInputElement.value = '';
     this._removeEventListeners();
-    clearTimeout(this._timeoutId);
   }
 
   _visibilityTasksList() {
-    this._timeoutId = setTimeout(() => {
-      this._tasksListElement.classList.add('tasks__list_visibility');
-      this._tasksInputElement.classList.add('tasks__input_visibility');
-      this._tasksInputElement.focus();
-    }, 200);
+    this._tasksContainerElement.classList.add('tasks__container_opened');
+    this._tasksListElement.classList.add('tasks__list_visibility');
+    this._tasksInputElement.classList.add('tasks__input_visibility');
+    this._tasksInputElement.focus();
+    this._tasksStartElement.classList.add('tasks__start_hide');
   }
 
   _startAddTasks() {
@@ -107,6 +109,8 @@ export default class TasksList {
       this._setTaskText(this._taskText.trim());
       this._taskText = '';
       this._tasksInputElement.value = '';
+      this._tasksContainerElement.classList.remove('tasks__container_empty');
+      this._tasksContainerElement.classList.add('tasks__container_opened');
     }
   }
 
@@ -131,6 +135,8 @@ export default class TasksList {
       this._tasksStartElement.classList.remove('tasks__start_hide');
       this._startButtonElement.classList.remove('tasks__start-button_hide');
       this._startButtonElement.disabled = false;
+      this._tasksContainerElement.classList.add('tasks__container_empty');
+      this._tasksContainerElement.classList.remove('tasks__container_opened');
     }
   }
 
@@ -140,7 +146,7 @@ export default class TasksList {
 
   _getStateInLocalStorage() {
     if (localStorage.getItem('tasks')) {
-      this._tasksState = JSON.parse(localStorage.getItem('tasks'));
+      return JSON.parse(localStorage.getItem('tasks'));
     }
   }
 }
