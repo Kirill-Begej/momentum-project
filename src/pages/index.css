@@ -52,6 +52,7 @@
 @import '../blocks/weather/__column/_type/weather__column_type_text.css';
 @import '../blocks/tasks/__container/_opened/tasks__container_opened.css';
 @import '../blocks/tasks/__container/_empty/tasks__container_empty.css';
+@import '../blocks/tasks/__remove-all-button/_visibility/tasks__remove-all-button_visibility.css';
 @import '../blocks/tasks/__list/_visibility/tasks__list_visibility.css';
 @import '../blocks/tasks/__text/_crossed-out/tasks__text_crossed-out.css';
 @import '../blocks/tasks/__input/_visibility/tasks__input_visibility.css';

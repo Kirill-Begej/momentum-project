@@ -3,6 +3,7 @@ export default class TasksList {
     this._tasksContainerElement = document.querySelector('#tasksContainer');
     this._tasksStartElement = document.querySelector('#tasksStart');
     this._startButtonElement = document.querySelector('#startButton');
+    this._tasksRemoveAllButtonElement = document.querySelector('#buttonRemoveAll');
     this._tasksListElement = document.querySelector('#tasksList');
     this._tasksInputElement = document.querySelector('#tasksInput');
     this._tasksInputFieldElement = document.querySelector('#tasksInputField');
@@ -74,6 +75,7 @@ export default class TasksList {
     if (this._tasksState.length) {
       this._tasksListElement.classList.remove('tasks__list_visibility');
       this._tasksContainerElement.classList.remove('tasks__container_opened');
+      this._tasksRemoveAllButtonElement.classList.remove('tasks__remove-all-button_visibility');
     } else {
       this._tasksContainerElement.classList.remove('tasks__container_empty');
     }
@@ -84,6 +86,7 @@ export default class TasksList {
 
   _visibilityTasksList() {
     this._tasksContainerElement.classList.add('tasks__container_opened');
+    this._tasksRemoveAllButtonElement.classList.add('tasks__remove-all-button_visibility');
     this._tasksListElement.classList.add('tasks__list_visibility');
     this._tasksInputElement.classList.add('tasks__input_visibility');
     this._tasksInputErrorElement.classList.remove('tasks__input-error_visibility');
@@ -91,7 +94,7 @@ export default class TasksList {
     this._tasksStartElement.classList.add('tasks__start_hide');
   }
 
-  _startAddTasks() {
+  _startAddTasksHandler() {
     this._tasksInputElement.classList.add('tasks__input_visibility');
     this._startButtonElement.classList.add('tasks__start-button_hide');
     this._startButtonElement.disabled = true;
@@ -99,7 +102,7 @@ export default class TasksList {
     this._tasksInputFieldElement.focus();
   }
 
-  _setText(e) {
+  _setTextHandler(e) {
     if (e.target.value.charAt(0) === ' ') {
       e.target.value = '';
       if (!this._tasksInputElement.value) {
@@ -113,30 +116,43 @@ export default class TasksList {
     }
   }
 
-  _sendText(e) {
+  _sendTextHandler(e) {
     if (e.key === 'Enter' && this._taskText) {
       this._setTaskText(this._taskText.trim());
       this._taskText = '';
       this._tasksInputFieldElement.value = '';
       this._tasksContainerElement.classList.remove('tasks__container_empty');
       this._tasksContainerElement.classList.add('tasks__container_opened');
+      this._tasksRemoveAllButtonElement.classList.add('tasks__remove-all-button_visibility');
     }
     this._taskText = '';
   }
 
+  _removeAllTasksHandler() {
+    const newState = this._tasksState.filter((item) => !item.completed);
+    this._tasksState = newState;
+    this._tasksListElement.innerHTML = '';
+    this._setStateInLocalStorage();
+    this._renderTasksInLocalStorage(this._tasksState);
+    this._checkEmptyState();
+  }
+
   _addEventListeners() {
-    this._clickStartButton = this._startAddTasks.bind(this);
+    this._clickStartButton = this._startAddTasksHandler.bind(this);
     this._startButtonElement.addEventListener('click', this._clickStartButton);
-    this._textInput = this._setText.bind(this);
+    this._textInput = this._setTextHandler.bind(this);
     this._tasksInputElement.addEventListener('input', this._textInput);
-    this._sendTextInput = this._sendText.bind(this);
+    this._sendTextInput = this._sendTextHandler.bind(this);
     this._tasksInputElement.addEventListener('keydown', this._sendTextInput);
+    this._removeAllTasksButton = this._removeAllTasksHandler.bind(this);
+    this._tasksRemoveAllButtonElement.addEventListener('click', this._removeAllTasksButton);
   }
 
   _removeEventListeners() {
     this._startButtonElement.removeEventListener('click', this._clickStartButton);
     this._tasksInputElement.removeEventListener('input', this._textInput);
     this._tasksInputElement.removeEventListener('keydown', this._sendTextInput);
+    this._tasksRemoveAllButtonElement.removeEventListener('click', this._removeAllTasksButton);
   }
 
   _checkEmptyState() {
@@ -147,6 +163,7 @@ export default class TasksList {
       this._startButtonElement.disabled = false;
       this._tasksContainerElement.classList.add('tasks__container_empty');
       this._tasksContainerElement.classList.remove('tasks__container_opened');
+      this._tasksRemoveAllButtonElement.classList.remove('tasks__remove-all-button_visibility');
     }
   }
 
