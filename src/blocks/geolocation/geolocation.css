@@ -5,3 +5,9 @@
   font: var(--font-size-l) var(--secondary-font);
   gap: 5px;
 }
+
+@media screen and (max-width: 767px) {
+  .geolocation {
+    font-size: var(--font-size-m);
+  }
+}

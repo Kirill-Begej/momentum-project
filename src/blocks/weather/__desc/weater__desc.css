@@ -1,3 +1,9 @@
 .weater__desc {
   font: var(--font-size-s) var(--secondary-font);
 }
+
+@media screen and (max-width: 767px) {
+  .weater__desc {
+    height: 20px;
+  }
+}

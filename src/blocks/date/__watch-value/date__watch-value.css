@@ -2,3 +2,9 @@
   text-align: center;
   width: 112px;
 }
+
+@media screen and (max-width: 767px) {
+  .date__watch-value {
+    width: 70px;
+  }
+}

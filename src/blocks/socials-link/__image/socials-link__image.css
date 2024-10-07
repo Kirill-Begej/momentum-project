@@ -5,3 +5,10 @@
   height: 38px;
   width: 38px;
 }
+
+@media screen and (max-width: 1023px) {
+  .socials-link__image {
+    height: 30px;
+    width: 30px;
+  }
+}

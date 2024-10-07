@@ -4,3 +4,9 @@
   gap: 2px;
   justify-content: center;
 }
+
+@media screen and (max-width: 767px) {
+  .date__watch {
+    font-size: var(--font-size-xl);
+  }
+}

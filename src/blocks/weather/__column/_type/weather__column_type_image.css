@@ -1,3 +1,9 @@
 .weather__column_type_image {
   gap: 10px;
 }
+
+@media screen and (max-width: 767px) {
+  .weather__column_type_image {
+    gap: 5px;
+  }
+}

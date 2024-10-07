@@ -1,0 +1,8 @@
+.tasks__remove-all-desc {
+  display: none;
+  position: absolute;
+  font: var(--primary-font) var(--font-size-xs);
+  top: 21px;
+  left: -104px;
+  color: var(--primary-color);
+}

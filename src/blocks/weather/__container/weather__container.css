@@ -2,3 +2,10 @@
   display: flex;
   gap: 35px;
 }
+
+@media screen and (max-width: 767px) {
+  .weather__container {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

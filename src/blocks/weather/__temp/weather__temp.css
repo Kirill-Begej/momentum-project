@@ -1,3 +1,9 @@
 .weather__temp {
   font: var( --font-size-xl) var(--secondary-font);
 }
+
+@media screen and (max-width: 767px) {
+  .weather__temp {
+    font-size: var( --font-size-l);
+  }
+}

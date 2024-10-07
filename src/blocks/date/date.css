@@ -3,3 +3,9 @@
   font: var(--font-size-l) var(--primary-font);
   text-align: center;
 }
+
+@media screen and (max-width: 767px) {
+  .date {
+    font-size: var(--font-size-m);
+  }
+}
