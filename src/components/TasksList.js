@@ -101,7 +101,7 @@ export default class TasksList {
 
   _setText(e) {
     if (e.target.value.charAt(0) === ' ') {
-      this._tasksInputElement.value = '';
+      e.target.value = '';
       if (!this._tasksInputElement.value) {
         this._tasksInputErrorElement.classList.add('tasks__input-error_visibility');
       }
@@ -117,10 +117,9 @@ export default class TasksList {
     if (e.key === 'Enter' && this._taskText) {
       this._setTaskText(this._taskText.trim());
       this._taskText = '';
-      this._tasksInputElement.value = '';
+      this._tasksInputFieldElement.value = '';
       this._tasksContainerElement.classList.remove('tasks__container_empty');
       this._tasksContainerElement.classList.add('tasks__container_opened');
-      this._tasksInputFieldElement.value = '';
     }
     this._taskText = '';
   }

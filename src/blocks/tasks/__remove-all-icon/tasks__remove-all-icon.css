@@ -1,0 +1,11 @@
+.tasks__remove-all-icon {
+  display: block;
+  fill: var(--secondary-color);
+  height: 21px;
+  transition: fill .3s ease-out;
+  width: 16px;
+}
+
+.tasks__remove-all-icon:hover {
+  fill: var(--primary-color);
+}

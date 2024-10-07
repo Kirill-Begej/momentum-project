@@ -26,6 +26,8 @@
 @import '../blocks/weather/__temp/weather__temp.css';
 @import '../blocks/tasks/tasks.css';
 @import '../blocks/tasks/__container/tasks__container.css';
+@import '../blocks/tasks/__remove-all-button/tasks__remove-all-button.css';
+@import '../blocks/tasks/__remove-all-icon/tasks__remove-all-icon.css';
 @import '../blocks/tasks/__list/tasks__list.css';
 @import '../blocks/tasks/__item/tasks__item.css';
 @import '../blocks/tasks/__checkbox/tasks__checkbox.css';
