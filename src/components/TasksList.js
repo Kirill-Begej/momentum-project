@@ -76,12 +76,15 @@ export default class TasksList {
     this._startButtonElement.disabled = false;
     this._tasksInputElement.value = '';
     this._removeEventListeners();
+    clearTimeout(this._timeoutId);
   }
 
   _visibilityTasksList() {
-    this._tasksListElement.classList.add('tasks__list_visibility');
-    this._tasksInputElement.classList.add('tasks__input_visibility');
-    this._tasksInputElement.focus();
+    this._timeoutId = setTimeout(() => {
+      this._tasksListElement.classList.add('tasks__list_visibility');
+      this._tasksInputElement.classList.add('tasks__input_visibility');
+      this._tasksInputElement.focus();
+    }, 200);
   }
 
   _startAddTasks() {

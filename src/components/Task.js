@@ -21,6 +21,10 @@ export default class Task {
     this._idTask = id;
     this._completed = completed;
     this._generate(taskText);
+    if (completed) {
+      this._taskElement.querySelector('.tasks__text').classList.add('tasks__text_crossed-out');
+      this._taskElement.querySelector('.tasks__checkbox-input').checked = true;
+    }
     return this._taskElement;
   }
 
