@@ -48,6 +48,14 @@ module.exports = (env) => {
     },
   };
 
+  const imagesLoader = {
+    test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+    type: 'asset/resource',
+    generator: {
+      filename: 'images/[name].[contenthash:8][ext]',
+    },
+  };
+
   const svgLoader = {
     test: /\.svg$/i,
     type: 'asset/resource',
@@ -110,6 +118,7 @@ module.exports = (env) => {
         isProd && htmlLoader,
         cssLoader,
         fontsLoader,
+        imagesLoader,
         svgLoader,
         babelLoader,
       ],
