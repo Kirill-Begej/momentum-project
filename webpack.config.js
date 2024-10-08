@@ -120,7 +120,9 @@ module.exports = (env) => {
         outputPath: path.resolve(__dirname, 'build', 'images', 'favicon'),
         prefix: 'images/favicon/',
       }),
-      new Dotenv(),
+      new Dotenv({
+        path: './.env',
+      }),
     ].filter(Boolean),
     module: {
       rules: [
