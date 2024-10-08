@@ -15,6 +15,7 @@ export default class TasksList {
   }
 
   enableTasksList() {
+    this._checkStateInLocalStorage();
     if (this._tasksListOpened) {
       this._closeTasksList();
       this._tasksListOpened = false;
@@ -164,6 +165,12 @@ export default class TasksList {
       this._tasksContainerElement.classList.add('tasks__container_empty');
       this._tasksContainerElement.classList.remove('tasks__container_opened');
       this._tasksRemoveAllButtonElement.classList.remove('tasks__remove-all-button_visibility');
+    }
+  }
+
+  _checkStateInLocalStorage() {
+    if (!localStorage.getItem('tasks')) {
+      this._setStateInLocalStorage();
     }
   }
 
